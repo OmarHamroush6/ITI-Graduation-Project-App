@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: omarapp
+  namespace: app
+  name: omarapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: omarapp
+  template:
+    metadata:
+      labels:
+        app: omarapp
+    spec:
+      containers:
+      - image: omar10hamroush/omar-app:v1
+        name: omarapp
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        resources: {}
